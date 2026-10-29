@@ -41,32 +41,6 @@
   function clock() { document.querySelectorAll('[data-clock]').forEach(el => { el.textContent = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit' }).format(new Date()); }); }
   clock(); setInterval(clock, 30000);
 
-  const form = $('[data-note-form]');
-  if (form) {
-    const raw = read('notes', []);
-    let notes = Array.isArray(raw) ? raw.filter(n => n && typeof n.id === 'string' && typeof n.message === 'string' && typeof n.name === 'string').slice(0, 30).map(n => ({id:n.id,name:n.name.slice(0,16),message:n.message.slice(0,180)})) : [];
-    const list = $('[data-notes]'); const feedback = $('[data-note-message]');
-    function showNotes() {
-      list.replaceChildren();
-      if (!notes.length) list.append(node('p', 'no-notes', 'No notes yet. The first one is yours.'));
-      notes.forEach(note => {
-        const entry = node('article', 'local-note'); entry.append(node('p', '', note.message));
-        const footer = node('footer'); footer.append(node('span', '', `— ${note.name}`)); const remove = node('button', '', 'Remove'); remove.type = 'button'; remove.setAttribute('aria-label', `Remove the local note by ${note.name}`);
-        remove.addEventListener('click', () => { notes = notes.filter(n => n.id !== note.id); const ok = save('notes', notes); showNotes(); feedback.textContent = ok ? 'Local note removed.' : 'Removed for now. Browser storage could not be updated.'; });
-        footer.append(remove); entry.append(footer); list.append(entry);
-      });
-    }
-    showNotes();
-    form.elements.message.addEventListener('input', () => form.elements.message.setCustomValidity(''));
-    form.addEventListener('submit', e => {
-      e.preventDefault(); const message = form.elements.message.value.trim().slice(0,180);
-      if (!message) { form.elements.message.setCustomValidity('Write a little something first.'); form.elements.message.reportValidity(); return; }
-      if (notes.length >= 30) { feedback.textContent = 'You have 30 notes. Remove one to make room.'; return; }
-      notes.unshift({id:crypto.randomUUID?.() || `${Date.now()}-${Math.random()}`,name:form.elements.name.value.trim().slice(0,16) || 'A wanderer',message});
-      const ok = save('notes', notes); form.elements.message.value = ''; showNotes(); feedback.textContent = ok ? 'Saved in this browser.' : 'Visible for now. Storage is unavailable, so this note will not persist.';
-    });
-  }
-
   const tracks = [
     {name:'Afternoon Walk',beat:400,notes:[72,76,79,76,74,72,67,0,69,72,76,72,67,64,67,0],bass:[48,53]},
     {name:'Rain at the Window',beat:500,notes:[69,72,76,0,74,72,69,0,65,69,72,0,71,67,64,0],bass:[45,41]}

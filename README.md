@@ -19,10 +19,12 @@ Visit <http://127.0.0.1:4176/>. This is a static HTML/CSS/JavaScript website wit
 - Explore **My Computer → My Little World (C:) → Research / Essays / Photography**.
 - Use the folder tree, breadcrumbs, Back, Forward, Up, and icon/detail views. Right-click a folder to open it in a separate window.
 - Open nested Start menus, or a window system menu for keyboard movement and resizing. Arrow keys adjust; Enter confirms and Esc cancels.
-- Change the wallpaper in Display Properties. Window bounds, wallpaper, notes, and Notepad drafts are stored only in the current browser.
+- Window positions and sizes are remembered only in the current browser.
 - Play original synthesized melodies in CD Player. Audio starts only after pressing Play, and stops when the player is closed.
 
-The virtual disks and folders are website navigation. They do not read or change files on a visitor’s computer. The Local Guestbook does not send messages to the site owner or share them with other visitors.
+The virtual disks and folders are read-only website navigation. They do not read or change files on a visitor’s computer. There are no guestbook, comment, editor, upload, or content-submission features. Visitors can browse, arrange windows, and listen to music; none of these actions changes the published content or another visitor’s view.
+
+The site has no write API or database. Its Content Security Policy disables form submissions and JavaScript network connections. Published content is updated through the GitHub repository by an account with write permission, not through the website.
 
 ## Make it yours
 
@@ -55,4 +57,4 @@ Keep full-resolution originals separately; publish web-sized copies and remove l
 
 Publish the repository root from the `codex/github-pages` branch using GitHub Pages. Keep `.nojekyll` and the relative asset paths. Pushes to the publishing branch automatically update the site; no local server is needed for the published website.
 
-Browser storage belongs to each origin and browser. Local preview notes and preferences do not transfer automatically to the published site.
+Browser storage is used only for window positions and sizes. These preferences belong to each origin and browser and do not transfer automatically between local preview and the published site.
