@@ -5,11 +5,12 @@ window.ISLAND_CONTENT = {
     description: 'Old things, good stories,\nand unplanned afternoons.',
     status: 'Saving little pieces of life'
   },
-  collections: [
-    { id: 'mixtape', category: 'music', label: 'MUSIC', title: 'Summer on Tape', subtitle: 'A soundtrack for wandering and daydreaming.', art: 'cassette.svg', tone: 'pink', description: 'Some songs make the weather feel a little brighter. This is a place for a favorite album, a personal playlist, or the story behind a song.', note: '✦ A little idea: make a five-song mixtape for every month.' },
-    { id: 'stories', category: 'stories', label: 'BOOKS & FILMS', title: 'Stories on Repeat', subtitle: 'Finding a little of ourselves in other stories.', art: 'book.svg', tone: 'yellow', description: 'A book full of dog-eared pages. A film worth watching even when you know every line. Keep the stories you would recommend to a friend right here.', note: '✦ A little idea: save one detail you loved, instead of just a rating.' },
-    { id: 'wandering', category: 'wandering', label: 'WANDERINGS', title: 'Wandering Off the Map', subtitle: 'Small discoveries, no destination required.', art: 'camera.svg', tone: 'green', description: 'Take the unfamiliar turn. Notice a flower growing through a wall. This is a home for photographs, travel fragments, and ordinary days worth keeping.', note: '✦ A little idea: take your camera outside and photograph just one color.' }
-  ],
+  collections: [],
+  // Add research entries as {title, text, date}.
+  research: [],
+  // Add your own images to photos/ and list them here.
+  // Example: {title:'An Afternoon Walk', src:'photos/walk.jpg', alt:'Trees beside a quiet path', caption:'A little way from home.', date:'2026'}
+  photography: [],
   journal: [
     { date: 'One quiet weekend', title: 'A Little Daydreaming', text: 'Close a few tabs, make some tea, and watch the trees move in the wind. Not everything on the list got done today, and that is all right. This is a sample entry; make it a moment from your own day.' },
     { date: 'A rainy afternoon', title: 'New Batteries, Old Camera', text: 'There is something lovely about an old thing working again. It feels like a small promise: there are still plenty of adventures left. You could tell the story behind a favorite photograph here.' },

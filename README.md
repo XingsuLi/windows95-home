@@ -1,6 +1,6 @@
 # My Little World 95
 
-A Windows 95-inspired personal interest website, with movable windows, nested folders, a taskbar, and a little music. The profile, journal, and collections are sample content ready to make your own.
+A Windows 95-inspired personal interest website, with movable windows, nested folders, a taskbar, and a little music. The desktop opens with no windows. Research and Photography are ready for your content; Essays contains replaceable sample entries.
 
 ## Run locally
 
@@ -16,7 +16,7 @@ Visit <http://127.0.0.1:4176/>. This is a static HTML/CSS/JavaScript website wit
 
 - Double-click desktop and folder icons to open them. On a touchscreen, tap; with a keyboard, press Enter.
 - Move, resize, stack, minimize, maximize, and close individual windows.
-- Explore **My Computer → My Little World (C:) → Favorites → Music / Books & Films / Wanderings**.
+- Explore **My Computer → My Little World (C:) → Research / Essays / Photography**.
 - Use the folder tree, breadcrumbs, Back, Forward, Up, and icon/detail views. Right-click a folder to open it in a separate window.
 - Open nested Start menus, or a window system menu for keyboard movement and resizing. Arrow keys adjust; Enter confirms and Esc cancels.
 - Change the wallpaper in Display Properties. Window bounds, wallpaper, notes, and Notepad drafts are stored only in the current browser.
@@ -26,10 +26,30 @@ The virtual disks and folders are website navigation. They do not read or change
 
 ## Make it yours
 
-- `shared/content.js`: collections, journal entries, and little surprises.
-- `index.html`: welcome page, help, and app content.
+- `shared/content.js`: research entries, essays (`journal`), photographs (`photography`), and little surprises.
+- `index.html`: desktop shortcuts, help, and app content.
 - `app.js`: folder hierarchy, about text, menus, and window behavior.
 - `style.css`: desktop, windows, and responsive styling.
+
+## Add photography
+
+Copy your photographs into `photos/`, then add entries to the `photography` array in `shared/content.js`:
+
+```js
+photography: [
+  {
+    title: 'An Afternoon Walk',
+    src: 'photos/walk.jpg',
+    alt: 'Trees beside a quiet path',
+    caption: 'A little way from home.',
+    date: '2026'
+  }
+]
+```
+
+Use JPEG, PNG, WebP, or AVIF files, with paths relative to the website root. An optional `thumbnail` path can point to a smaller preview. The folder shows thumbnails; double-click a photograph to open the movable Photo Viewer. It supports Previous/Next, arrow keys, Fit to Window, and Actual Size. Missing images show a readable fallback.
+
+Keep full-resolution originals separately; publish web-sized copies and remove location metadata you do not want to share. No example photographs are presented as your work. To publish changes, update the asset version in `index.html`, commit the images and content, and push the publishing branch.
 
 ## GitHub Pages
 
